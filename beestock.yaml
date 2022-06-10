@@ -1,0 +1,338 @@
+openapi: 3.0.1
+info:
+  title: API BeeStock
+  version: 0.0.1
+  description: API de integração do sistema BeeStock
+  contact:
+    email: contato@szsolucoes.com.br
+    name: Suporte SZ
+    url: https://szsolucoes.com.br/suporte
+externalDocs:
+  description: SZ Soluções
+  url: https://szsolucoes.com.br
+paths:
+  /api/login:
+    summary: Login API BeeStock
+    description: Geração de Token para integração de informações com o BeeStock
+    post:
+      summary: Login API BeeStock
+      description: Geração de Token para integração de informações com o BeeStock
+      operationId: login_beestock
+      responses:
+        default:
+          description: Default error sample response
+          content:
+            application/json:
+              examples:
+                '200':
+                  value: |-
+                    {
+                       token: "string"
+                    }
+  /api/import/branches:
+    post:
+      summary: Inclusão de Filial
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/users:
+    post:
+      summary: Inclusão de Usuário
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/customers:
+    post:
+      summary: Inclusão e Alteração de Cliente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/suppliers:
+    post:
+      summary: Inclusão e Alteração de Fornecedor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/carriers:
+    post:
+      summary: Inclusão e Alteração de Transportadora
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/ranges:
+    post:
+      summary: Inclusão de Ranges
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/storageAddress:
+    post:
+      summary: Inclusão de Endereço de Armazenamento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/packages:
+    post:
+      summary: Inclusão de Embalagem
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/unitMeasures:
+    post:
+      summary: Inclusão de Unidade de Medida
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/families:
+    post:
+      summary: Inclusão de Familia de Produtos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/products:
+    post:
+      summary: Inclusão e Alteração de Produtos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/productBranches:
+    post:
+      summary: Inclusão e Alteração de Produtos x Filial
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/customerProducts:
+    post:
+      summary: Inclusão e Alteração de Produtos x Cliente
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/productEans:
+    post:
+      summary: Inclusão EAN do Produto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/averageCosts:
+    post:
+      summary: Inclusão e Alteração de Custo Médio
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/inboundDocuments:
+    post:
+      summary: Inclusão de Documento Entrada Portaria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/inboundOrders:
+    post:
+      summary: Inclusão e Alteração de Documento de Entrada Recebimento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/outboundOrders:
+    post:
+      summary: Inclusão e Alteração de Documento de Saída
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/billingReturn:
+    post:
+      summary: Returno Faturamento
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/balances:
+    post:
+      summary: Criação de Saldo Estoque
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+  /api/import/inventoriesErp:
+    post:
+      summary: Inventário ERP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                orderNumber:
+                  type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+components:
+  responses:
+    response200:
+      description: Sucesso
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: string
+              message:
+                type: string
