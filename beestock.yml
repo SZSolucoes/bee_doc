@@ -323,35 +323,9 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/response200'
-  
+  /api/import/billingReturn:
     post:
-      summary: Alcances
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-    post:
-      summary: Balanços
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  
-    summary: Devolução de Faturamento
+      summary: Devolução de Faturamento
       requestBody:
         content:
           application/json:
