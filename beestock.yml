@@ -323,7 +323,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/response200'
-  /api/import/ranges:
+  
     post:
       summary: Alcances
       requestBody:
