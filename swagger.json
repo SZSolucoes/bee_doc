@@ -1,39 +1,50 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "API BeeStock",
-    "version": "0.0.1",
+    "title": "BeeStock Documentation",
     "description": "API de integração do sistema BeeStock",
+    "version": "1.0.0",
     "contact": {
       "email": "contato@szsolucoes.com.br",
       "name": "Suporte SZ",
       "url": "https://szsolucoes.com.br/suporte"
     }
   },
-  "externalDocs": {
-    "description": "SZ Soluções",
-    "url": "https://szsolucoes.com.br"
-  },
   "paths": {
     "/api/login": {
-      "summary": "Login API BeeStock",
-      "description": "Geração de Token para integração de informações com o BeeStock",
       "post": {
         "summary": "Login API BeeStock",
         "description": "Geração de Token para integração de informações com o BeeStock",
-        "operationId": "login_beestock",
-        "responses": {
-          "default": {
-            "description": "Default error sample response",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "200": {
-                    "value": "{\n   token: \"string\"\n}"
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",                
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "required": true
+                  },
+                  "password": {
+                    "type": "string",
+                    "required": true,
+                    "format": "password"
                   }
+                },
+                "example": {
+                  "username": "username",
+                  "password": "password"
                 }
               }
             }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "token"
+          },
+          "200v2": {
+            "description": "Usuário ou senha incorretos"
           }
         }
       }
@@ -45,11 +56,55 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
+                "type":"object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
+                  "token": "string",
+                  "branches": {
+                    "type": "array",
+                    "branches": [{
+                      "code": "string",
+                      "name": "string",
+                      "companyCode": "string",
+                      "email": "string",
+                      "phone": "string",
+                      "cnpj": "string",
+                      "stateRegistration": "string",
+                      "ibge": "string",
+                      "street": "string",
+                      "number": "string",
+                      "complement": "string",
+                      "district": "string",
+                      "city": "string",
+                      "state": "string",
+                      "country": "string",
+                      "postalCode": "string",
+                      "note": "string"
+                    }]
                   }
+                },
+                "example": {
+                  "token": "token",
+                  "branches": [
+                    {
+                      "code": "5",
+                      "name": "Filial Teste",
+                      "companyCode": "001",
+                      "email": "filial@teste.com.br",
+                      "phone": "phone example",
+                      "cnpj": "cnpj example",
+                      "stateRegistration": "ISENTO",
+                      "ibge": "ibge",
+                      "street": "street example",
+                      "number": "number example",
+                      "complement": "complement example",
+                      "district": "district example",
+                      "city": "city example",
+                      "state": "state example",
+                      "country": "country example",
+                      "postalCode": "postal code example",
+                      "note": "branch test import"
+                    }
+                  ]
                 }
               }
             }
@@ -57,7 +112,7 @@
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/response200"
+            "description": "success"
           }
         }
       }
@@ -71,17 +126,75 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "email": "string",
+                  "login": "string",
+                  "name": "string",
+                  "type": "number",
+                  "password": "string",
+                  "passValid": "date",
+                  "code": "string",
+                  "department": "string",
+                  "userFunction": "string",
+                  "workShift": "string",
+                  "accessProfile": [{
+                    "code": "beestock",
+                    "name": "BeeStock"
+                  }],
+                  "phone": "string",
+                  "branchLine": "string",
+                  "cellPhone": "string",
+                  "printer": "string",
+                  "userBranches": "string",
+                  "checkPlate": "string",
+                  "checkInboundOrder": "string",
+                  "storage": "string",
+                  "transfer": "string",
+                  "picking": "string",
+                  "checkOutboundOrder": "string",
+                  "consolidation": "string",
+                  "packingList": "string",
+                  "dispatch": "string",
+                  "pickingReturn": "string",
+                  "stockConsult": "string",
+                  "mainBranch": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "email": "string",
+                  "login": "string",
+                  "name": "string",
+                  "type": "number",
+                  "password": "string",
+                  "passValid": "date",
+                  "code": "string",
+                  "department": "string",
+                  "userFunction": "string",
+                  "workShift": "string",
+                  "accessProfile": [{
+                    "code": "beestock",
+                    "name": "BeeStock"
+                  }],
+                  "phone": "string",
+                  "branchLine": "string",
+                  "cellPhone": "string",
+                  "printer": "string",
+                  "userBranches": "string",
+                  "checkPlate": "string",
+                  "checkInboundOrder": "string",
+                  "storage": "string",
+                  "transfer": "string",
+                  "picking": "string",
+                  "checkOutboundOrder": "string",
+                  "consolidation": "string",
+                  "packingList": "string",
+                  "dispatch": "string",
+                  "pickingReturn": "string",
+                  "stockConsult": "string",
+                  "mainBranch": "string",
+                  "note": "string"
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
           }
         }
       }
@@ -95,42 +208,101 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "businessName": "string",
+                  "email": "string",
+                  "phone": "string",
+                  "cnpj": "string",
+                  "stateRegistration": "string",
+                  "ibge": "string",
+                  "postalCode": "string",
+                  "street": "string",
+                  "number": "string",
+                  "complement": "string",
+                  "district": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "string",
+                  "name": "string",
+                  "businessName": "string",
+                  "email": "string",
+                  "phone": "string",
+                  "cnpj": "string",
+                  "stateRegistration": "string",
+                  "ibge": "string",
+                  "postalCode": "string",
+                  "street": "string",
+                  "number": "string",
+                  "complement": "string",
+                  "district": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "note": "string"
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
           }
         }
       }
     },
     "/api/import/suppliers": {
       "post": {
-        "summary": "Inclusão e Alteração de Fornecedor",
+        "summary": "Inclusão e Alteração de Cliente",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "businessName": "string",
+                  "email": "string",
+                  "phone": "string",
+                  "cnpj": "string",
+                  "stateRegistration": "string",
+                  "ibge": "string",
+                  "postalCode": "string",
+                  "street": "string",
+                  "number": "string",
+                  "complement": "string",
+                  "district": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "businessName": "business name example",
+                  "email": "email example",
+                  "phone": "phone example",
+                  "cnpj": "cnpj example",
+                  "stateRegistration": "state registration example",
+                  "ibge": "ibge example",
+                  "postalCode": "postal code example",
+                  "street": "street example",
+                  "number": "number example",
+                  "complement": "complement example",
+                  "district": "district example",
+                  "city": "city example",
+                  "state": "state example",
+                  "country": "country example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -141,68 +313,139 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
+                "type":"object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "businessName": "string",
+                  "email": "string",
+                  "phone": "string",
+                  "cnpj": "string",
+                  "stateRegistration": "string",
+                  "ibge": "string",
+                  "postalCode": "string",
+                  "street": "string",
+                  "number": "string",
+                  "complement": "string",
+                  "district": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "businessName": "business name example",
+                  "email": "email example",
+                  "phone": "phone example",
+                  "cnpj": "cnpj example",
+                  "stateRegistration": "state registration example",
+                  "ibge": "ibge example",
+                  "postalCode": "postal code example",
+                  "street": "street example",
+                  "number": "number example",
+                  "complement": "complement example",
+                  "district": "district example",
+                  "city": "city example",
+                  "state": "state example",
+                  "country": "country example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
     "/api/import/ranges": {
       "post": {
         "summary": "Inclusão de Ranges",
-        "requestBody": {
+        "requestBody":{
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "branchCode": "string",
+                  "note": "string",
+                  "limitProductsWave": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "branchCode": "branch code example",
+                  "note": "note example",
+                  "limitProductsWave": "limit products wave example"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/storageAddress": {
       "post": {
-        "summary": "Inclusão de Endereço de Armazenamento",
+        "summary": "Inclusão de Endereço de Armazenamento",        
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code":"string",
+                  "name":"string",
+                  "branchCode": "string",
+                  "type":"string",
+                  "sector": "string",
+                  "street": "string",
+                  "level": "string",
+                  "column":"string",
+                  "drawer": "string",
+                  "blocked": "string",
+                  "size":"string",
+                  "height": "string",
+                  "width": "string",
+                  "length": "string",
+                  "capacityVolume": "string",
+                  "capacityWeight": "string",
+                  "shareAddress": "string",
+                  "curve": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "branchCode": "branch code example",
+                  "type": "type example",
+                  "sector": "sector example",
+                  "street": "street example",
+                  "level": "level example",
+                  "column": "column example",
+                  "drawer": "drawer example",
+                  "blocked": "blocked example",
+                  "size": "size example",
+                  "height": "height example",
+                  "width": "width example",
+                  "length": "length example",
+                  "capacityVolume": "capacity volume example",
+                  "capacityWeight": "capacity weight example",
+                  "shareAddress": "share address example",
+                  "curve": "curve example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+          
         }
       }
     },
@@ -215,18 +458,29 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "weight": "string",
+                  "height": "string",
+                  "width": "string",
+                  "length": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "weight": "weight example",
+                  "height": "height example",
+                  "width": "width example",
+                  "length": "length example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -239,42 +493,50 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/families": {
       "post": {
-        "summary": "Inclusão de Familia de Produtos",
+        "summary": "Inclusão de Família de Produtos",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "code": "string",
+                  "name": "string",
+                  "unitMeasureCode": "string",
+                  "cuttingPlan": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "code": "code example",
+                  "name": "name example",
+                  "unitMeasureCode": "unit measure code example",
+                  "cuttingPlan": "cutting plan example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -287,19 +549,70 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "productCode": "string",
+                  "name": "string",
+                  "fullName": "string",
+                  "fullDescription": "string",
+                  "complementCode": "string",
+                  "complementInfo": "string",
+                  "unitMeasure": "string",
+                  "materialFamily": "string",
+                  "productControlType": "string",
+                  "stockControlType": "string",
+                  "volume": "number",
+                  "height": "string",
+                  "width": "string",
+                  "length": "string",
+                  "grossWeight": "string",
+                  "netWeight": "string",
+                  "origin": "string",
+                  "taxClassification": "string",
+                  "fractional": "string",
+                  "conversionFactor": "string",
+                  "multipleSale": "string",
+                  "businessUnit": "string",
+                  "level1": "string",
+                  "level2": "string",
+                  "level3": "string",
+                  "level4": "string",
+                  "level5": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "productCode": "string",
+                  "name": "string",
+                  "fullName": "string",
+                  "fullDescription": "string",
+                  "complementCode": "string",
+                  "complementInfo": "string",
+                  "unitMeasure": "string",
+                  "materialFamily": "string",
+                  "productControlType": "string",
+                  "stockControlType": "string",
+                  "volume": "number",
+                  "height": "string",
+                  "width": "string",
+                  "length": "string",
+                  "grossWeight": "string",
+                  "netWeight": "string",
+                  "origin": "string",
+                  "taxClassification": "string",
+                  "fractional": "string",
+                  "conversionFactor": "string",
+                  "multipleSale": "string",
+                  "businessUnit": "string",
+                  "level1": "string",
+                  "level2": "string",
+                  "level3": "string",
+                  "level4": "string",
+                  "level5": "string",
+                  "note": "string"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/productBranches": {
@@ -311,18 +624,47 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "productCode": "string",
+                  "branchCode": "string",
+                  "averageCost": "string",
+                  "restriction": "string",
+                  "leadTime": "string",
+                  "storable": "string",
+                  "demandClass": "string",
+                  "flag": "string",
+                  "defaultAddress": "string",
+                  "shareAddress": "string",
+                  "numberCountsYear": "number",
+                  "curve": "string",
+                  "receivesExpired": "string",
+                  "pickingExpired": "string",
+                  "addressType": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "productCode": "product code example",
+                  "branchCode": "branch code example",
+                  "averageCost": "average cost example",
+                  "restriction": "restriction example",
+                  "leadTime": "lead time example",
+                  "storable": "storage example",
+                  "demandClass": "demand class example",
+                  "flag": "flag example",
+                  "defaultAddress": "default address example",
+                  "shareAddress": "share address example",
+                  "numberCountsYear": "0",
+                  "curve": "curve example",
+                  "receivesExpired": "receives expired example",
+                  "pickingExpired": "picking expired example",
+                  "addressType": "address type example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -335,19 +677,26 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "productCode": "string",
+                  "customerCode": "string",
+                  "productCustomerCode": "string",
+                  "productCustomerName": "string",
+                  "unitMeasure": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "productCode": "product code example",
+                  "customerCode": "customer code example",
+                  "productCustomerCode": "product customer code example",
+                  "productCustomerName": "product customer name example",
+                  "unitMeasure": "unit measure example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/productEans": {
@@ -359,18 +708,25 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "productCode": "string",
+                  "ean": "string",
+                  "type": "number",
+                  "main": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "productCode": "product code example",
+                  "ean": "ean example",
+                  "type": "type example",
+                  "main": "main example",
+                  "note": "branch test import"
                 }
               }
             }
-          }
+          }          
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -383,19 +739,26 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "branchCode": "string",
+                  "warehouseCode": "string",
+                  "productCode": "string",
+                  "averageCost": "string",
+                  "costDate": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "branchCode": "branch code example",
+                  "warehouseCode": "warehouse code example",
+                  "productCode": "product code example",
+                  "averageCost": "average cost example",
+                  "costDate": "cost date example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/inboundDocuments": {
@@ -407,18 +770,33 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "branchCode": "string",
+                  "supplierCode": "string",
+                  "orderNumber": "string",
+                  "serie": "string",
+                  "issueDate": "string",
+                  "accessKey": "string",
+                  "licensePlate": "string",
+                  "expectedVolumes": "string",
+                  "note": "string"
+                },
+                "example": {
+                  "branchCode": "branch code example",
+                  "supplierCode": "supplier code example",
+                  "orderNumber": "order number example",
+                  "serie": "serie example",
+                  "issueDate": "issue date example",
+                  "accessKey": "access key example",
+                  "licensePlate": "license plate example",
+                  "expectedVolumes": "expected volumes example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -431,18 +809,61 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "branchCode": "string",
+                  "supplierCode":"string",
+                  "orderNumber": "string",
+                  "orderType": "string",
+                  "serie": "string",
+                  "specie": "string",
+                  "accessKey": "string",
+                  "carrierCode": "string",
+                  "licensePlate": "string",
+                  "expectedVolumes": "number",
+                  "status": "string",
+                  "cfop": "string",
+                  "deliveryDate": "string",
+                  "postalCode": "string",
+                  "ibge": "string",
+                  "street": "string",
+                  "number": "string",
+                  "complement": "string",
+                  "district": "string",
+                  "city": "string",
+                  "state": "string",
+                  "country": "string",
+                  "note": "string"            
+                },
+                "example": {
+                  "branchCode": "branch code example",
+                  "supplierCode":"supplier code example",
+                  "orderNumber": "order number example",
+                  "orderType": "order type example",
+                  "serie": "serie example",
+                  "specie": "specie example",
+                  "accessKey": "access key example",
+                  "carrierCode": "carrier code example",
+                  "licensePlate": "license plate example",
+                  "expectedVolumes": "expected volumes example",
+                  "status": "status example",
+                  "cfop": "cfop example",
+                  "deliveryDate": "delivery date example",
+                  "postalCode": "postal code example",
+                  "ibge": "ibge example",
+                  "street": "street example",
+                  "number": "number example",
+                  "complement": "complement example",
+                  "district": "district example",
+                  "city": "city example",
+                  "state": "state example",
+                  "country": "country example",
+                  "note": "branch test import"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
+
         }
       }
     },
@@ -455,17 +876,71 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "branchCode": "string",
+                  "customerCode": "string",
+                  "orderNumber": "string",
+                  "orderType": "string",
+                  "urgent": "string",
+                  "priorityCode": "string",
+                  "partialOrder": "string",
+                  "carrierCode": "string",
+                  "deliveryDate": "string",
+                  "deliveryType": "string",
+                  "customerOrderCode": "string",
+                  "representativeOrderCode": "string",
+                  "erpOrderCode": "string",
+                  "representative": "string",
+                  "orderDate": "string",
+                  "totalValue": "string",
+                  "shipToCustomerCode": "string",
+                  "shipToCustomerName": "string",
+                  "shipToPostalCode": "string",
+                  "shipToIbgeCode": "string",
+                  "shipToStreet": "string",
+                  "shipToNumber": "string",
+                  "shipToComplement": "string",
+                  "shipToDistrict": "string",
+                  "shipToCity": "string",
+                  "shipToState": "string",
+                  "shipToCountry": "string",
+                  "note": "string",
+                  "products": "string",
+                  "restriction": "string"
+                },
+                "example": {
+                  "branchCode": "string",
+                  "customerCode": "string",
+                  "orderNumber": "string",
+                  "orderType": "string",
+                  "urgent": "string",
+                  "priorityCode": "string",
+                  "partialOrder": "string",
+                  "carrierCode": "string",
+                  "deliveryDate": "string",
+                  "deliveryType": "string",
+                  "customerOrderCode": "string",
+                  "representativeOrderCode": "string",
+                  "erpOrderCode": "string",
+                  "representative": "string",
+                  "orderDate": "string",
+                  "totalValue": "string",
+                  "shipToCustomerCode": "string",
+                  "shipToCustomerName": "string",
+                  "shipToPostalCode": "string",
+                  "shipToIbgeCode": "string",
+                  "shipToStreet": "string",
+                  "shipToNumber": "string",
+                  "shipToComplement": "string",
+                  "shipToDistrict": "string",
+                  "shipToCity": "string",
+                  "shipToState": "ship to state example",
+                  "shipToCountry": "ship to country example",
+                  "note": "branch test import",
+                  "products": "products example",
+                  "restriction": "restriction example"
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
           }
         }
       }
@@ -479,19 +954,26 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "status": "string",
+                  "carrierCode": "string",
+                  "deliveryType": "string",
+                  "invoiceNumber": "string",
+                  "invoiceSerie": "string",
+                  "accessKey": "string"
+                },
+                "example": {
+                  "status": "status example",
+                  "carrierCode": "carrier code example",
+                  "deliveryType": "delivery type example",
+                  "invoiceNumber": "invoice number example",
+                  "invoiceSerie": "invoice serie example",
+                  "accessKey": "access key example"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/balances": {
@@ -503,19 +985,50 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
+                  "branchCode": "string",
+                  "warehouseCode": "string",
+                  "depositCode": "string",
+                  "addressCode": "string",
+                  "productCode": "string",
+                  "productLineNumber": "string",
+                  "lotNumber": "string",
+                  "operation": "string",
+                  "type": "string",
+                  "quantity": "string",
+                  "unitMeasure": "string",
+                  "serie": "string",
+                  "orderNumber": "string",
+                  "supplierCode": "string",
+                  "expirationDate": "string",
+                  "manufacturingDate": "string",
+                  "note": "string",
+                  "baptismLabel": "string"
+                },
+                "example": {
+                  "branchCode": "string",
+                  "warehouseCode": "string",
+                  "depositCode": "string",
+                  "addressCode": "string",
+                  "productCode": "string",
+                  "productLineNumber": "string",
+                  "lotNumber": "string",
+                  "operation": "string",
+                  "type": "string",
+                  "quantity": "string",
+                  "unitMeasure": "string",
+                  "serie": "string",
+                  "orderNumber": "string",
+                  "supplierCode": "string",
+                  "expirationDate": "string",
+                  "manufacturingDate": "string",
+                  "note": "string",
+                  "baptismLabel": "string"
                 }
               }
             }
           }
         },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
+        "responses": {}
       }
     },
     "/api/import/inventoriesErp": {
@@ -527,36 +1040,30 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "orderNumber": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "$ref": "#/components/responses/response200"
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "responses": {
-      "response200": {
-        "description": "Sucesso",
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "success": {
-                  "type": "string"
+                  "productCode": "string",
+                  "branchCode": "string",
+                  "warehouseCode": "string",
+                  "depositCode": "string",
+                  "quantity": "string",
+                  "unitMeasure": "string",
+                  "storageAddress": "string",
+                  "lotNumber": "string",
+                  "fifoDate": "string",
+                  "expirationDate": "string",
+                  "note": "string"
                 },
-                "message": {
-                  "type": "string"
+                "example": {
+                  "productCode": "string",
+                  "branchCode": "string",
+                  "warehouseCode": "string",
+                  "depositCode": "string",
+                  "quantity": "string",
+                  "unitMeasure": "string",
+                  "storageAddress": "string",
+                  "lotNumber": "string",
+                  "fifoDate": "string",
+                  "expirationDate": "string",
+                  "note": "string"
                 }
               }
             }
