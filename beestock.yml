@@ -1,332 +1,26 @@
 openapi: 3.0.1
 info:
   title: API BeeStock
-  version: 0.0.1
+  version: 1.0.0
   description: API de integração do sistema BeeStock
   contact:
     email: contato@szsolucoes.com.br
     name: Suporte SZ
     url: https://szsolucoes.com.br/suporte
+servers:
+  - url: http://localhost:3333/beeStock/
+    description: LocalHost
+  - url: https://api-beestock-demo.szsolucoes.com.br/beeStock/
+    description: Demonstração
+tags:
+  - name: BeeStock
 externalDocs:
   description: SZ Soluções
   url: https://szsolucoes.com.br
-paths:
-  /api/login:
-    summary: Login API BeeStock
-    description: Geração de Token para integração de informações com o BeeStock
-    post:
-      summary: Login API BeeStock
-      description: Geração de Token para integração de informações com o BeeStock
-      operationId: login_beestock
-      responses:
-        default:
-          description: Default error sample response
-          content:
-            application/json:
-              examples:
-                '200':
-                  value: |-
-                    {
-                       token: "string"
-                    }
-  /api/import/branches:
-    post:
-      summary: Inclusão de Filial
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/users:
-    post:
-      summary: Inclusão de Usuário
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/customers:
-    post:
-      summary: Inclusão e Alteração de Cliente
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/suppliers:
-    post:
-      summary: Inclusão e Alteração de Fornecedor
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/carriers:
-    post:
-      summary: Inclusão e Alteração de Transportadora
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/ranges:
-    post:
-      summary: Inclusão de Ranges
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/storageAddress:
-    post:
-      summary: Inclusão de Endereço de Armazenamento
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/packages:
-    post:
-      summary: Inclusão de Embalagem
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/unitMeasures:
-    post:
-      summary: Inclusão de Unidade de Medida
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/families:
-    post:
-      summary: Inclusão de Familia de Produtos
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/products:
-    post:
-      summary: Inclusão e Alteração de Produtos
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/productBranches:
-    post:
-      summary: Inclusão e Alteração de Produtos x Filial
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/customerProducts:
-    post:
-      summary: Inclusão e Alteração de Produtos x Cliente
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/productEans:
-    post:
-      summary: Inclusão EAN do Produto
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/averageCosts:
-    post:
-      summary: Inclusão e Alteração de Custo Médio
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/inboundDocuments:
-    post:
-      summary: Inclusão de Documento Entrada Portaria
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/inboundOrders:
-    post:
-      summary: Inclusão e Alteração de Documento de Entrada Recebimento
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/outboundOrders:
-    post:
-      summary: Inclusão e Alteração de Documento de Saída
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/billingReturn:
-    post:
-      summary: Returno Faturamento
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/balances:
-    post:
-      summary: Criação de Saldo Estoque
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
-  /api/import/inventoriesErp:
-    post:
-      summary: Inventário ERP
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                orderNumber:
-                  type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/response200'
 components:
   responses:
-    response200:
-      description: Sucesso
+    response401:
+      description: Token Inválido
       content:
         application/json:
           schema:
@@ -334,5 +28,2022 @@ components:
             properties:
               success:
                 type: string
-              message:
-                type: string
+                example: "false"
+              error:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    example: 102
+                  message:
+                    type: string
+                    example: Não autorizado
+                  details:
+                    type: string
+                    example: "Invalid token: access token is invalid"
+    response200:
+      description: Retorno do resultado da integração
+      content:
+        application/json:
+          examples:
+            'Success':
+              value:
+                success: true
+            'Error':
+              value:
+                success: false
+                data: [
+                  {
+                    code: "99999",
+                    error: 9000,
+                    messsage: "Descrição da validação que gerou o erro na importação"
+                  }
+                ]
+paths:
+  /api/login:
+    post:
+      summary: Login API BeeStock
+      description: Geração de Token para integração de informações com o BeeStock
+      operationId: login_beestock
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  description: "Usuário de integração com o BeeStock"
+                  type: string
+                  example: joao.pacheco
+                password:
+                  type: string
+                  description: "Senha do usuário de integração com o BeeStock"
+                  example: sz@123
+              required:
+                - username
+                - password
+      responses:
+        '200':
+          description: Retorno do resultado do login
+          content:
+            application/json:
+              examples:
+                'Success':
+                  value:
+                    access_token: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                    token_type: "Bearer"
+                    expires_in: 7199
+                    refresh_token: "f6a5ceed677a45f3deabf388589bcd21c76c93c8"
+                'Error':
+                  value:
+                    success: false
+                    message: "Usuário ou senha incorretos"
+  /api/import/branches:
+    post:
+      summary: Inclusão e Alteração de Filiais
+      description: Essa rota é usada para criar ou alterar Filiais no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                branches:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                      - companyCode
+                      - cnpj
+                      - postalCode
+                    properties:
+                      code:
+                        type: string
+                        example: "99999"
+                        description: Código da Filial
+                      name:
+                        type: string
+                        example: SZ Soluções
+                        description: Nome da Filial
+                      companyCode:
+                        type: string
+                        example: 4
+                        description: Código da Empresa
+                      email:
+                        type: string
+                        example: contato@szsolucoes.com.br
+                        description: Email
+                      phone:
+                        type: string
+                        example: 47-3034-2848
+                        description: Telefone
+                      cnpj:
+                        type: string
+                        example: 99999999999999
+                        description: CNPJ
+                      stateRegistration:
+                        type: string
+                        example: 999999999999
+                        description: Inscrição Estadual
+                      postalCode:
+                        type: string
+                        example: 89203570
+                        description: CEP
+                      street:
+                        type: string
+                        example: Rua Rio Grande do Sul
+                        description: Rua
+                      number:
+                        type: string
+                        example: 385
+                        description: Número
+                      complement:
+                        type: string
+                        example: 4º Andar, Sala 401
+                        description: Complemento
+                      district:
+                        type: string
+                        example: Anita Garibaldi
+                        description: Bairro
+                      city:
+                        type: string
+                        example: Joinville
+                        description: Cidade
+                      state:
+                        type: string
+                        example: SC
+                        description: Estado
+                      country:
+                        type: string
+                        example: Brasil
+                        description: País
+                      note:
+                        type: string
+                        example: Filial teste integração
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/users:
+    post:
+      summary: Inclusão de Usuários
+      description: Essa rota é usada para criar Usuários no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                users:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - login
+                      - name
+                      - email
+                      - type
+                      - password
+                    properties:
+                      login:
+                        type: string
+                        example: "beestock"
+                        description: Login
+                      name:
+                        type: string
+                        example: "BeeStock"
+                        description: Nome
+                      email:
+                        type: string
+                        example: "beestock@beestock.com.br"
+                        description: Email
+                      type:
+                        type: integer
+                        example: 1
+                        description: Tipo
+                        enum:
+                          - 1 (Master)
+                          - 2 (Administrador)
+                          - 3 (Operacional)
+                          - 4 (Integração)
+                      password:
+                        type: string
+                        example: sz@123
+                        description: Senha
+                      passValid:
+                        type: string
+                        example: 31/12/9999
+                        description: Validade da Senha
+                      code:
+                        type: string
+                        example: "001"
+                        description: Matricula
+                      department:
+                        type: string
+                        example: Expedição
+                        description: Departamento
+                      userFunction:
+                        type: string
+                        example: Separador
+                        description: Função
+                      workShift:
+                        type: string
+                        example: Padrão
+                        description: Turno
+                      phone:
+                        type: string
+                        example: 47-99999-9999
+                        description: Telefone
+                      branchLine:
+                        type: string
+                        example: 9999
+                        description: Ramal
+                      cellPhone:
+                        type: string
+                        example: 47-99999-9999
+                        description: Celular
+                      printer:
+                        type: string
+                        example: printer_teste
+                        description: Impressora
+                      accessProfile:
+                        type: string
+                        example: beestock
+                        description: Perfil de Acesso
+                      mainBranch:
+                        type: string
+                        example: 99999
+                        description: Filial Principal
+                      userBranches:
+                        type: string
+                        example: "00001,00002,99999"
+                        description: Permissão Filiais
+                      checkPlate:
+                        type: boolean
+                        example: true
+                        description: Conferência de Placa
+                      checkInboundOrder:
+                        type: boolean
+                        example: true
+                        description: Conferência Recebimento
+                      storage:
+                        type: boolean
+                        example: true
+                        description: Armazenamento
+                      transfer:
+                        type: boolean
+                        example: true
+                        description: Transferência
+                      picking:
+                        type: boolean
+                        example: true
+                        description: Picking
+                      checkOutboundOrder:
+                        type: boolean
+                        example: true
+                        description: Conferência Expedição
+                      consolidation:
+                        type: boolean
+                        example: true
+                        description: Consolidação
+                      packingList:
+                        type: boolean
+                        example: true
+                        description: Romaneio
+                      dispatch:
+                        type: boolean
+                        example: true
+                        description: Despacho
+                      pickingReturn:
+                        type: boolean
+                        example: true
+                        description: Devolução de Picking
+                      stockConsult:
+                        type: boolean
+                        example: true
+                        description: Consulta Estoque
+                      inventory:
+                        type: boolean
+                        example: true
+                        description: Inventário
+                      relateEan:
+                        type: boolean
+                        example: true
+                        description: Relaciona EAN
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/customers:
+    post:
+      summary: Inclusão e Alteração de Clientes
+      description: Essa rota é usada para criar ou alterar Clientes no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                customers:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                      - businessName
+                      - cnpj
+                    properties:
+                      code:
+                        type: string
+                        example: 1
+                        description: Código do Cliente
+                      name:
+                        type: string
+                        example: SZ Soluções
+                        description: Nome do Cliente
+                      businessName:
+                        type: string
+                        example: SZ
+                        description: Nome Fantasia
+                      email:
+                        type: string
+                        example: contato@szsolucoes.com.br
+                        description: Email
+                      phone:
+                        type: string
+                        example: 47-3034-2848
+                        description: Telefone
+                      cnpj:
+                        type: string
+                        example: 99999999999999
+                        description: CNPJ
+                      stateRegistration:
+                        type: string
+                        example: 999999999999
+                        description: Inscrição Estadual
+                      postalCode:
+                        type: string
+                        example: 89203570
+                        description: CEP
+                      street:
+                        type: string
+                        example: Rua Rio Grande do Sul
+                        description: Rua
+                      number:
+                        type: string
+                        example: 385
+                        description: Número
+                      complement:
+                        type: string
+                        example: 4º Andar, Sala 401
+                        description: Complemento
+                      district:
+                        type: string
+                        example: Anita Garibaldi
+                        description: Bairro
+                      city:
+                        type: string
+                        example: Joinville
+                        description: Cidade
+                      state:
+                        type: string
+                        example: SC
+                        description: Estado
+                      country:
+                        type: string
+                        example: Brasil
+                        description: País
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/suppliers:
+    post:
+      summary: Inclusão e Alteração de Fornecedores
+      description: Essa rota é usada para criar ou alterar Fornecedores no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                suppliers:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                      - businessName
+                      - cnpj
+                    properties:
+                      code:
+                        type: string
+                        example: 1
+                        description: Código do Fornecedor
+                      name:
+                        type: string
+                        example: SZ Soluções
+                        description: Nome do Fornecedor
+                      businessName:
+                        type: string
+                        example: SZ
+                        description: Nome Fantasia
+                      email:
+                        type: string
+                        example: contato@szsolucoes.com.br
+                        description: Email
+                      phone:
+                        type: string
+                        example: 47-3034-2848
+                        description: Telefone
+                      cnpj:
+                        type: string
+                        example: 99999999999999
+                        description: CNPJ
+                      stateRegistration:
+                        type: string
+                        example: 999999999999
+                        description: Inscrição Estadual
+                      postalCode:
+                        type: string
+                        example: 89203570
+                        description: CEP
+                      street:
+                        type: string
+                        example: Rua Rio Grande do Sul
+                        description: Rua
+                      number:
+                        type: string
+                        example: 385
+                        description: Número
+                      complement:
+                        type: string
+                        example: 4º Andar, Sala 401
+                        description: Complemento
+                      district:
+                        type: string
+                        example: Anita Garibaldi
+                        description: Bairro
+                      city:
+                        type: string
+                        example: Joinville
+                        description: Cidade
+                      state:
+                        type: string
+                        example: SC
+                        description: Estado
+                      country:
+                        type: string
+                        example: Brasil
+                        description: País
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/carriers:
+    post:
+      summary: Inclusão e Alteração de Transportadoras
+      description: Essa rota é usada para criar ou alterar Transporadoras no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                carriers:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                      - businessName
+                      - mode
+                      - cnpj
+                    properties:
+                      code:
+                        type: string
+                        example: 1
+                        description: Código do Cliente
+                      name:
+                        type: string
+                        example: SZ Soluções
+                        description: Nome do Cliente
+                      businessName:
+                        type: string
+                        example: SZ
+                        description: Nome Fantasia
+                      mode:
+                        type: integer
+                        example: 1
+                        description: Via de Transporte
+                        enum:
+                          - 1 (Rodoviário)
+                          - 2 (Aeroviário)
+                          - 3 (Marítimo)
+                          - 4 (Ferroviário)
+                          - 5 (Outros)
+                      email:
+                        type: string
+                        example: contato@szsolucoes.com.br
+                        description: Email
+                      phone:
+                        type: string
+                        example: 47-3034-2848
+                        description: Telefone
+                      cnpj:
+                        type: string
+                        example: 99999999999999
+                        description: CNPJ
+                      stateRegistration:
+                        type: string
+                        example: 999999999999
+                        description: Inscrição Estadual
+                      postalCode:
+                        type: string
+                        example: 89203570
+                        description: CEP
+                      street:
+                        type: string
+                        example: Rua Rio Grande do Sul
+                        description: Rua
+                      number:
+                        type: string
+                        example: 385
+                        description: Número
+                      complement:
+                        type: string
+                        example: 4º Andar, Sala 401
+                        description: Complemento
+                      district:
+                        type: string
+                        example: Anita Garibaldi
+                        description: Bairro
+                      city:
+                        type: string
+                        example: Joinville
+                        description: Cidade
+                      state:
+                        type: string
+                        example: SC
+                        description: Estado
+                      country:
+                        type: string
+                        example: Brasil
+                        description: País
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/ranges:
+    post:
+      summary: Inclusão de Ranges
+      description: Essa rota é usada para criar Ranges no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                ranges:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - branchCode
+                      - name
+                    properties:
+                      code:
+                        type: string
+                        example: S01-99999
+                        description: Código do Range
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      name:
+                        type: string
+                        example: Range S01
+                        description: Nome do Range
+                      limitProductsWave:
+                        type: integer
+                        example: 20
+                        description: Limite de Produtos por Onda
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+                      addresses:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            code:
+                              type: string
+                              example: S01R01N01C01R01
+                              description: Código do Range
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/storageAddress:
+    post:
+      summary: Inclusão de Endereços de Armazenamento
+      description: Essa rota é usada para criar Endereços no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                storageAddresses:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                      - branchCode
+                      - type
+                      - rangeCode
+                      - curve
+                    properties:
+                      code: 
+                        type: string
+                        example: S99R99N99C99G99
+                        description: Código do Endereço
+                      name:
+                        type: string
+                        example: S99R99N99C99G99
+                        description: Descrição do Endereço
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      type: 
+                        type: integer
+                        example: 1
+                        description: Tipo
+                      rangeCode:
+                        type: string
+                        example: S99-99999
+                        description: Código do Range
+                      curve:
+                        type: string
+                        example: A
+                        description: Curva
+                      shareAddress:
+                        type: boolean
+                        example: true
+                        description: Compartilha Endereço
+                      sector:
+                        type: string
+                        example: S99
+                        description: Setor
+                      street:
+                        type: string
+                        example: R99
+                        description: Rua
+                      level:
+                        type: string
+                        example: N99
+                        description: Nível
+                      column:
+                        type: string
+                        example: C99
+                        description: Coluna
+                      drawer:
+                        type: string
+                        example: G99
+                        description: Gaveta
+                      blocked:
+                        type: boolean
+                        example: false
+                        description: Bloqueado
+                      size:
+                        type: integer
+                        example: 1
+                        description: Classificação
+                      height:
+                        type: number
+                        example: 100
+                        description: Altura
+                      width:
+                        type: number
+                        example: 100
+                        description: Largura
+                      length:
+                        type: number
+                        example: 100
+                        description: Comprimento
+                      capacityVolume:
+                        type: number
+                        example: 100
+                        description: Capacidade Volume
+                      capacityWeight:
+                        type: number
+                        example: 100
+                        description: Capacidade Peso
+                      note:
+                        type: string
+                        example: S01-99999
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/packages:
+    post:
+      summary: Inclusão de Embalagens
+      description: Essa rota é usada para criar Embalagens no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                packages:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                    properties:
+                      code:
+                        type: string
+                        example: CX
+                        description: Código da Embalagem
+                      name:
+                        type: string
+                        example: Caixa
+                        description: Descrição
+                      weight:
+                        type: number
+                        example: 100
+                        description: Peso
+                      height:
+                        type: number
+                        example: 100
+                        description: Altura
+                      width:
+                        type: number
+                        example: 100
+                        description: Largura
+                      length:
+                        type: number
+                        example: 100
+                        description: Comprimento
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/unitMeasures:
+    post:
+      summary: Inclusão de Unidades de Medida
+      description: Essa rota é usada para criar Unidades de Medida no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                unitsMeasure:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                    properties:
+                      code:
+                        type: string
+                        example: UN
+                        description: Código da Unidade
+                      name:
+                        type: string
+                        example: Unidade
+                        description: Descrição
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/families:
+    post:
+      summary: Inclusão de Famílias de Produtos
+      description: Essa rota é usada para criar Famílias de Produtos no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                materialFamilies:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - code
+                      - name
+                    properties:
+                      code:
+                        type: string
+                        example: "001"
+                        description: Código da Família
+                      name:
+                        type: string
+                        example: Material Eletrico
+                        description: Descrição
+                      unitMeasure: 
+                        type: string
+                        example: UN
+                        description: Código da Unidade de Medida
+                      cuttingPlan:
+                        type: boolean
+                        example: true
+                        description: Gera Plano de Corte?
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/products:
+    post:
+      summary: Inclusão e Alteração de Produtos
+      description: Essa rota é usada para criar ou alterar Produtos no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                products:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - productCode
+                      - name
+                      - fullName
+                      - unitMeasure
+                      - materialFamily
+                      - productControlType
+                      - stockControlType
+                    properties:
+                      productCode:
+                        type: string
+                        example: 100
+                        description: Código do Produto
+                      name:
+                        type: string
+                        example: Produto Teste
+                        description: Descrição
+                      fullName:
+                        type: string
+                        example: Produto Teste Integração
+                        description: Nome Completo
+                      fullDescription:
+                        type: string
+                        example: Produto Teste Integração BeeStock
+                        description: Descrição Completa
+                      complementCode:
+                        type: string
+                        example: B001
+                        description: Código Complementar
+                      complementInfo:
+                        type: string
+                        example: Produto Teste
+                        description: Informação Complementar
+                      unitMeasure:
+                        type: string
+                        example: UN
+                        description: Código da Unidade de Medida
+                      materialFamily:
+                        type: string
+                        example: "001"
+                        description: Código da Família Material
+                      productControlType:
+                        type: integer
+                        example: 1
+                        description: Tipo de Controle do Produto
+                        enum:
+                          - 1 (Físico)
+                          - 2 (Total)
+                          - 3 (Consignado)
+                          - 4 (Débito Direto)
+                          - 5 (Específico)
+                      stockControlType:
+                        type: integer
+                        example: 1
+                        description: Tipo de Controle de Estoque
+                        enum:
+                          - 1 (Serial)
+                          - 2 (Número Série)
+                          - 3 (Lote)
+                          - 4 (Referência)
+                      height:
+                        type: number
+                        example: 100
+                        description: Altura
+                      width:
+                        type: number
+                        example: 100
+                        description: Largura
+                      length:
+                        type: number
+                        example: 100
+                        description: Comprimento
+                      grossWeight:
+                        type: number
+                        example: 1000
+                        description: Peso Bruto
+                      netWeight:
+                        type: number
+                        example: 1000
+                        description: Peso Líquido
+                      origin:
+                        type: number
+                        example: 0
+                        description: Origem
+                        enum:
+                          - 1 (Mercado Interno)
+                          - 2 (Mercado Externo)
+                      taxClassification:
+                        type: string
+                        example: 99999999
+                        description: Classificação Fiscal
+                      fractional:
+                        type: boolean
+                        example: false
+                        description: Fraciona
+                      conversionFactor:
+                        type: number
+                        example: 1
+                        description: Fator Conversão
+                      multipleSale:
+                        type: number
+                        example: 10
+                        description: Lote Múltiplo Venda
+                      businessUnit:
+                        type: string
+                        example: 100
+                        description: Unidade de Negócio
+                      level1:
+                        type: string
+                        example: L1
+                        description: Nível 1
+                      level2:
+                        type: string
+                        example: L1.2
+                        description: Nível 2
+                      level3:
+                        type: string
+                        example: L1.2.3
+                        description: Nível 3
+                      level4:
+                        type: string
+                        example: L1.2.3.4
+                        description: Nível 4
+                      level5:
+                        type: string
+                        example: UN
+                        description: Nível 5
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/productBranches:
+    post:
+      summary: Inclusão e Alteração de Produtos x Filial
+      description: Essa rota é usada para criar ou alterar Produtos x Filial no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                productBranches:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - productCode
+                      - branchCode
+                    properties:
+                      productCode:
+                        type: string
+                        example: 100
+                        description: Código do Produto
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      averageCost:
+                        type: number
+                        example: 100.000
+                        description: Custo Médio
+                      restriction:
+                        type: boolean
+                        example: false
+                        description: Restrições
+                      leadTime:
+                        type: integer
+                        example: 10
+                        description: Lead Time
+                      defaultAddress:
+                        type: string
+                        example: S99R99N99C99G99
+                        description: Endereço Padrão
+                      shareAddress:
+                        type: boolean
+                        example: false
+                        description: Compartilha Endereço
+                      addressType:
+                        type: integer
+                        example: 1
+                        description: Tipo Endereço
+                      receivesExpired:
+                        type: boolean
+                        example: false
+                        description: Recebe Produto Vencido
+                      pickingExpired:
+                        type: boolean
+                        example: false
+                        description: Picking Produto Vencido
+                      curve:
+                        type: string
+                        example: N
+                        description: Curva
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/customerProducts:
+    post:
+      summary: Inclusão e Alteração de Produtos x Cliente
+      description: Essa rota é usada para criar ou alterar Produtos x Cliente no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                customerProducts:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - productCode
+                      - customerCode
+                      - productCustomerCode
+                      - productCustomerName
+                      - unitMeasure
+                    properties:
+                      productCode:
+                        type: string
+                        example: 100
+                        description: Código do Produto
+                      customerCode:
+                        type: string
+                        example: 99999
+                        description: Código do Cliente
+                      productCustomerCode:
+                        type: string
+                        example: T100
+                        description: Código do Produto do Cliente
+                      productCustomerName:
+                        type: string
+                        example: Produto Teste do Cliente Teste
+                        description: Descrição do Produto do Cliente
+                      unitMeasure:
+                        type: string
+                        example: UN
+                        description: Unidade de Medida
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/productEans:
+    post:
+      summary: Inclusão EANs do Produto
+      description: Essa rota é usada para criar EANs no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                productEans:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - productCode
+                      - ean
+                    properties:
+                      productCode:
+                        type: string
+                        example: 100
+                        description: Código do Produto
+                      ean:
+                        type: string
+                        example: 1234567890123
+                        description: EAN
+                      type:
+                        type: string
+                        example: EAN13
+                        description: Tipo EAN
+                      main:
+                        type: boolean
+                        example: true
+                        description: Principal?
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/averageCosts:
+    post:
+      summary: Inclusão e Alteração de Custos Médio
+      description: Essa rota é usada para criar ou alterar Custos Médios no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                averageCosts:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - productCode
+                      - averageCost
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      warehouseCode:
+                        type: string
+                        example: 11111
+                        description: Código do Depósito
+                      productCode:
+                        type: string
+                        example: 100
+                        description: Código do Produto
+                      averageCost:
+                        type: number
+                        example: 100.00
+                        description: Custo Médio
+                      costDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data Calculo
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/inboundDocuments:
+    post:
+      summary: Inclusão de Documentos de Entrada Portaria
+      description: Essa rota é usada para criar Documentos de Entrada Portaria no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                documents:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - supplierCode
+                      - orderNumber
+                      - accessKey
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 100
+                        description: Código da Filial
+                      supplierCode:
+                        type: string
+                        example: 123
+                        description: Código do Fornecedor
+                      orderNumber:
+                        type: string
+                        example: 1234567
+                        description: Numero do Documento
+                      serie:
+                        type: string
+                        example: 1
+                        description: Série
+                      issueDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Emissão
+                      accessKey:
+                        type: string
+                        example: 9876543210987654321098765432109876543219
+                        description: Chave de Acesso
+                      licensePlate:
+                        type: string
+                        example: ABC1234
+                        description: Placa Veículo
+                      expectedVolumes:
+                        type: integer
+                        example: 5
+                        description: Volumes Esperados
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/inboundOrders:
+    post:
+      summary: Inclusão e Alteração de Documentos de Entrada Recebimento
+      description: Essa rota é usada para criar ou alterar Documentos de Entrada Recebimento e seus Produtos no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                inboundOrders:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - supplierCode
+                      - orderNumber
+                      - orderType
+                      - accessKey
+                      - carrierCode
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 100
+                        description: Código da Filial
+                      supplierCode:
+                        type: string
+                        example: 999
+                        description: Código do Fornecedor
+                      orderNumber:
+                        type: string
+                        example: 987654321
+                        description: Número da Ordem de Entrada
+                      orderType:
+                        type: string
+                        example: NFE
+                        description: Tipo da Ordem
+                        enum:
+                          - NFE
+                          - NFD
+                          - NFT
+                          - TD
+                      serie:
+                        type: string
+                        example: 1
+                        description: Série
+                      specie:
+                        type: string
+                        example: ""
+                        description: Especie
+                      accessKey:
+                        type: string
+                        example: 9123456789012345678901234567890123456789
+                        description: Chave de Acesso
+                      canceled:
+                        type: boolean
+                        example: false
+                        description: Nota Cancelada
+                      carrierCode:
+                        type: string
+                        example: 555
+                        description: Código da Transportadora
+                      licensePlate:
+                        type: string
+                        example: ABC1234
+                        description: Placa do Veículo
+                      expectedVolumes:
+                        type: integer
+                        example: 5
+                        description: Volumes Esperados
+                      cfop:
+                        type: string
+                        example: 99999999
+                        description: CFOP
+                      deliveryDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Entrega Prevista
+                      postalCode:
+                        type: string
+                        example: 89203570
+                        description: CEP
+                      ibge:
+                        type: string
+                        example: 99999
+                        description: Código IBGE
+                      street:
+                        type: string
+                        example: Rua Rio Grande do Sul
+                        description: Rua
+                      number:
+                        type: string
+                        example: 385
+                        description: Número
+                      complement:
+                        type: string
+                        example: 4 Andar, Sala 401
+                        description: Complemento
+                      district:
+                        type: string
+                        example: Anita Garibaldi
+                        description: Bairro
+                      city:
+                        type: string
+                        example: Joinville
+                        description: Cidade
+                      state:
+                        type: string
+                        example: SC
+                        description: Estado
+                      country:
+                        type: string
+                        example: Brasil
+                        description: País
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+                      products:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - lineNumber
+                            - productCode
+                            - quantity
+                            - unitMeasure
+                          properties:
+                            lineNumber:
+                              type: string
+                              example: 10
+                              description: Linha Produto
+                            productCode:
+                              type: string
+                              example: 100
+                              description: Código do Produto
+                            supplierProductCode:
+                              type: string
+                              example: 9999
+                              description: Código do Produto do Fornecedor
+                            quantity:
+                              type: number
+                              example: 99
+                              description: Quantidade
+                            deliveryDate:
+                              type: string
+                              example: 31/12/9999
+                              description: Data de Entrega Prevista
+                            unitMeasure:
+                              type: string
+                              example: UN
+                              description: Unidade de Medida
+                            purchaseRequest:
+                              type: string
+                              example: PR99999
+                              description: Pedido de Compra
+                            purchaseOrder:
+                              type: string
+                              example: PO99999
+                              description: Ordem de Compra
+                            installment:
+                              type: string
+                              example: 1
+                              description: Parcela
+                            crossDockingOrder:
+                              type: string
+                              example: CO99999
+                              description: Pedido Cross Docking
+                            crossDockingQuantity:
+                              type: number
+                              example: 99
+                              description: Quantidade Cross Docking
+                            note:
+                              type: string
+                              example: ""
+                              description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/outboundOrders:
+    post:
+      summary: Inclusão e Alteração de Documentos de Saída
+      description: Essa rota é usada para criar ou alterar Documentos de Saída e seus Produtos no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                outboundOrders:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - customerCode
+                      - orderNumber
+                      - orderType
+                      - deliveryType
+                      - totalValue
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 100
+                        description: Código da Filial
+                      customerCode:
+                        type: string
+                        example: 123
+                        description: Código do Cliente
+                      orderNumber:
+                        type: string
+                        example: 987654321
+                        description: Número da Ordem de Saída
+                      orderType:
+                        type: string
+                        example: PD
+                        description: Tipo da Ordem
+                      urgent:
+                        type: boolean
+                        example: false
+                        description: Urgente
+                      priorityCode:
+                        type: string
+                        example: 99
+                        description: Prioridade
+                      partialOrder:
+                        type: boolean
+                        example: true
+                        description: Ordem Parcial
+                      carrierCode:
+                        type: boolean
+                        example: 12345
+                        description: Código da Transportadora
+                      deliveryDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Entrega Prevista
+                      deliveryType:
+                        type: string
+                        example: CIF
+                        description: Tipo de Entrega
+                        enum:
+                          - CIF
+                          - FOB
+                      customerOrderCode:
+                        type: integer
+                        example: 123
+                        description: Número Pedido Cliente
+                      representativeOrderCode:
+                        type: string
+                        example: R999
+                        description: Número Pedido Representante
+                      erpOrderCode:
+                        type: string
+                        example: OC999
+                        description: Número Pedido ERP
+                      representative:
+                        type: string
+                        example: R123
+                        description: Representante
+                      orderDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data do Pedido
+                      totalValue:
+                        type: number
+                        example: 99999.00
+                        description: Valor Total Pedido
+                      shipToCustomerCode:
+                        type: string
+                        example: 420
+                        description: Código Cliente Entrega
+                      shipToCustomerName:
+                        type: string
+                        example: João
+                        description: Nome Cliente Entrega
+                      shipToPostalCode:
+                        type: string
+                        example: 89203570
+                        description: CEP Entrega
+                      shipToIbgeCode:
+                        type: string
+                        example: 99999
+                        description: Código IBGE Entrega
+                      shipToStreet:
+                        type: string
+                        example: Rua Rio Grande do Sul
+                        description: Rua Entrada
+                      shipToNumber:
+                        type: string
+                        example: 385
+                        description: Número Entrega
+                      shipToComplement:
+                        type: string
+                        example: 4 Andar, Sala 401
+                        description: Complemento Entrega
+                      shipToDistrict:
+                        type: string
+                        example: Anita Garibaldi
+                        description: Bairro Entrega
+                      shipToCity:
+                        type: string
+                        example: Joinville
+                        description: Cidade Entrega
+                      shipToState:
+                        type: string
+                        example: SC
+                        description: Estado Entrega
+                      shipToCountry:
+                        type: string
+                        example: "Brasil"
+                        description: País Entrega
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+                      products:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - lineNumber
+                            - productCode
+                            - quantity
+                          properties:
+                            lineNumber:
+                              type: string
+                              example: 10
+                              description: Linha Produto
+                            productCode:
+                              type: string
+                              example: 100
+                              description: Código do Produto
+                            customerProductCode:
+                              type: string
+                              example: 9999
+                              description: Código do Produto do Cliente
+                            quantity:
+                              type: number
+                              example: 99
+                              description: Quantidade
+                            value:
+                              type: string
+                              example: 999.99
+                              description: Valor Produto
+                            note:
+                              type: string
+                              example: ""
+                              description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/billingReturn:
+    post:
+      summary: Retornos Faturamento ERP
+      description: Essa rota é usada para receber as informações dos Faturamentos no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                outboundOrders:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - customerCode
+                      - orderNumber
+                      - orderType
+                      - status
+                      - deliveryType
+                      - invoiceNumber
+                      - accessKey
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      customerCode:
+                        type: string
+                        example: 12345
+                        description: Código do Cliente
+                      orderNumber:
+                        type: string
+                        example: 987654321
+                        description: Número da Ordem de Saída
+                      orderType:
+                        type: string
+                        example: PD
+                        description: Tipo da Ordem
+                      status:
+                        type: string
+                        example: "OK"
+                        description: Status Faturamento
+                        enum:
+                          - OK
+                          - CANCELED
+                      carrierCode:
+                        type: string
+                        example: 12345
+                        description: Código da Transportadora
+                      deliveryType:
+                        type: string
+                        example: CIF
+                        description: Tipo de Entrega
+                        enum:
+                          - CIF
+                          - FOB
+                      invoiceNumber:
+                        type: string
+                        example: 1234567
+                        description: Número da Nota Fiscal
+                      serie:
+                        type: string
+                        example: 1
+                        description: Série da Nota Fiscal
+                      accessKey:
+                        type: string
+                        example: 1234567890123456789012345678901234567890
+                        description: Chave de Acesso
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/balances:
+    post:
+      summary: Carga de Saldos de Estoque
+      description: Essa rota é usada para criar uma carga inicial de Saldos de Estoque no BeeStock
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                balances:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - depositCode
+                      - productCode
+                      - lotNumber
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      depositCode:
+                        type: string
+                        example: REV
+                        description: Código do Depósito
+                      addressCode:
+                        type: string
+                        example: S01R01N01C01R01
+                        description: Endereço
+                      productCode:
+                        type: boolean
+                        example: 100
+                        description: Código do Produto
+                      lotNumber:
+                        type: string
+                        example: L001
+                        description: Lote
+                      quantity:
+                        type: number
+                        example: 100
+                        description: Quantidade
+                      expirationDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Validade
+                      manufacturingDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Fabricação
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
+  /api/import/inventoriesErp:
+    post:
+      summary: Espelho Saldo Estoque ERP
+      description: Essa rota é usada para integrar o espelho do Saldo Estoque do ERP no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                inventoriesErp:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - productCode
+                      - branchCode
+                      - warehouseCode
+                      - depositCode
+                      - quantity
+                      - unitMeasure
+                    properties:
+                      productCode:
+                        type: string
+                        example: 100
+                        description: Código do Produto
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      warehouseCode:
+                        type: string
+                        example: 999
+                        description: Código do Armazem
+                      depositCode:
+                        type: string
+                        example: REV
+                        description: Código do Depósito
+                      quantity:
+                        type: number
+                        example: 100
+                        description: Quantidade
+                      unitMeasure:
+                        type: string
+                        example: UN
+                        description: Unidade de Medida
+                      storageAddress:
+                        type: string
+                        example: S01R01N01C01R01
+                        description: Endereço
+                      lotNumber:
+                        type: string
+                        example: L001
+                        description: Lote
+                      expirationDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Validade
+                      fifoDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Fabricação
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
+      responses:
+        '200':
+          $ref: '#/components/responses/response200'
+        '401':
+          $ref: '#/components/responses/response401'
