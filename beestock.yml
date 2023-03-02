@@ -77,7 +77,7 @@ paths:
                 username:
                   description: "Usuário de integração com o BeeStock"
                   type: string
-                  example: joao.pacheco
+                  example: beestock
                 password:
                   type: string
                   description: "Senha do usuário de integração com o BeeStock"
