@@ -15,8 +15,8 @@ servers:
 tags:
   - name: BeeStock
 externalDocs:
-  description: SZ Soluções
-  url: https://szsolucoes.com.br
+  description: SZ Soluções Wiki
+  url: http://wiki.szsolucoes.com.br/wiki/doku.php/pagina_inicial
 components:
   responses:
     response401:
