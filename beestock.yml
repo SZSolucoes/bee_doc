@@ -1806,6 +1806,10 @@ paths:
                               type: number
                               example: 99
                               description: Quantidade
+                            mandatoryQuantity: 
+                              type: number
+                              example: 99
+                              description: Lance Obrigatório
                             value:
                               type: string
                               example: 999.99
