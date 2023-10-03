@@ -1086,7 +1086,7 @@ paths:
                         description: Peso Líquido
                       origin:
                         type: number
-                        example: 0
+                        example: 1
                         description: Origem
                         enum:
                           - 1 (Mercado Interno)
