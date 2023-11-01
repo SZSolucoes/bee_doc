@@ -1806,6 +1806,10 @@ paths:
                               type: number
                               example: 99
                               description: Quantidade
+                            minimumQuantity:
+                              type: number
+                              example: 99
+                              description: Quantidade Mínima
                             mandatoryQuantity: 
                               type: number
                               example: 99
