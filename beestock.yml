@@ -2068,119 +2068,86 @@ paths:
           $ref: "#/components/responses/response200"
         "401":
           $ref: "#/components/responses/response401"
-/api/import/finishOutboundOrders:
-  post:
-    summary: Finalização de Documento de Saída
-    description: Esta rota é utilizada para finalizar um Documento de Saída que ainda está pendente no BeeStock.
-    tags:
-      - "BeeStock"
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              token:
-                type: string
-                example: "9e83a0bdf14a097f92522a4754667969765dddcb"
-                description: Token de acesso
-              outboundOrders:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - branchCode
-                    - customerCode
-                    - orderNumber
-                    - orderType
-                  branchCode:
-                    type: string
-                    example: 99999
-                    description: Código da Filial
-                  customerCode:
-                    type: string
-                    example: 12345
-                    description: Código do Cliente
-                  orderNumber:
-                    type: string
-                    example: 987654321
-                    description: Número da Ordem de Saída
-                  orderType:
-                    type: string
-                    example: PD
-                    description: Tipo da Ordem
-    responses:
-      "200":
-        $ref: "#/components/responses/response200"
-      "401":
-        $ref: "#/components/responses/response401"
+  /api/import/finishOutboundOrders:
+    post:
+      summary: Finalização de Documento de Saída
+      description: Esta rota é utilizada para finalizar um Documento de Saída que ainda está pendente no BeeStock.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                  description: Token de acesso
+                outboundOrders:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - customerCode
+                      - orderNumber
+                      - orderType
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      customerCode:
+                        type: string
+                        example: 12345
+                        description: Código do Cliente
+                      orderNumber:
+                        type: string
+                        example: 987654321
+                        description: Número da Ordem de Saída
+                      orderType:
+                        type: string
+                        example: PD
+                        description: Tipo da Ordem
+      responses:
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
 
-/api/import/productionOrders:
-  post:
-    summary: Criação de Ordem de Produção
-    description: Esta rota é utilizada para criação da Ordem de Produção.
-    tags:
-      - "BeeStock"
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              productionOrders:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - branchCode
-                    - code
-                    - productCode
-                    - quantity
-                  branchCode:
-                    type: string
-                    example: 99999
-                    description: Código da Filial
-                  code:
-                    type: string
-                    example: 12345
-                    description: Código da Orderm de Produção
-                  productCode:
-                    type: string
-                    example: 987654321
-                    description: Código do Produto
-                  quantity:
-                    type: number
-                    example: 5
-                    description: Quantidade
-                  lotNumber:
-                    type: string
-                    example: LOTE001
-                    description: Número do Lote
-                  situation:
-                    type: number
-                    example: 1
-                    description: Situação
-                  reference:
-                    type: string
-                    example: ref
-                    description: Referência
-                  expectedDate:
-                    type: string
-                    example: 25/11/2023
-                    description: Data Esperada
-                  expirationDate:
-                    type: string
-                    example: 25/11/2025
-                    description: Data Expirada
-                  reserveProducts:
-                    type: array
-                    items:
-                      type: object
-                      required:
-                        - productCode
-                        - quantity
+  /api/import/productionOrders:
+    post:
+      summary: Criação de Ordem de Produção
+      description: Esta rota é utilizada para criação da Ordem de Produção.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productionOrders:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - code
+                      - productCode
+                      - quantity
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      code:
+                        type: string
+                        example: 12345
+                        description: Código da Orderm de Produção
                       productCode:
                         type: string
                         example: 987654321
@@ -2189,156 +2156,195 @@ paths:
                         type: number
                         example: 5
                         description: Quantidade
-                      lineNumber:
-                        type: string
-                        example: 10
-                        description: Linha Produto
                       lotNumber:
                         type: string
                         example: LOTE001
                         description: Número do Lote
-    responses:
-      "200":
-        $ref: "#/components/responses/response200"
-      "401":
-        $ref: "#/components/responses/response401"
+                      situation:
+                        type: number
+                        example: 1
+                        description: Situação
+                      reference:
+                        type: string
+                        example: ref
+                        description: Referência
+                      expectedDate:
+                        type: string
+                        example: 25/11/2023
+                        description: Data Esperada
+                      expirationDate:
+                        type: string
+                        example: 25/11/2025
+                        description: Data Expirada
+                      reserveProducts:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - productCode
+                            - quantity
+                          properties:
+                            productCode:
+                              type: string
+                              example: 987654321
+                              description: Código do Produto
+                            quantity:
+                              type: number
+                              example: 5
+                              description: Quantidade
+                            lineNumber:
+                              type: string
+                              example: 10
+                              description: Linha Produto
+                            lotNumber:
+                              type: string
+                              example: LOTE001
+                              description: Número do Lote
+      responses:
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
 
-/api/import/movementStockKanban:
-  post:
-    summary: Movimento de Estoque Kanban
-    description: Esta rota é utilizada para consumir o saldo do Endereço Kanban.
-    tags:
-      - "BeeStock"
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              productionOrders:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - branchCode
-                    - depositCode
-                    - orderCode
-                    - productCode
-                    - quantity
-                  branchCode:
-                    type: string
-                    example: 99999
-                    description: Código da Filial
-                  depositCode:
-                    type: string
-                    example: 12345
-                    description: Código do Depósito
-                  orderCode:
-                    type: string
-                    example: 987654321
-                    description: Código do Ordem de Produto
-                  productCode:
-                    type: string
-                    example: 987654321
-                    description: Código do Produto
-                  quantity:
-                    type: number
-                    example: 5
-                    description: Quantidade
-    responses:
-      "200":
-        $ref: "#/components/responses/response200"
-      "401":
-        $ref: "#/components/responses/response401"
+  /api/import/movementStockKanban:
+    post:
+      summary: Movimento de Estoque Kanban
+      description: Esta rota é utilizada para consumir o saldo do Endereço Kanban.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productionOrders:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - depositCode
+                      - orderCode
+                      - productCode
+                      - quantity
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      depositCode:
+                        type: string
+                        example: 12345
+                        description: Código do Depósito
+                      orderCode:
+                        type: string
+                        example: 987654321
+                        description: Código do Ordem de Produto
+                      productCode:
+                        type: string
+                        example: 987654321
+                        description: Código do Produto
+                      quantity:
+                        type: number
+                        example: 5
+                        description: Quantidade
+      responses:
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
 
-/api/import/serialGroups:
-  post:
-    summary: Etiquetas Agrupadoras
-    description: Esta rota é utilizada para criação de Etiquetas Agrupadoras.
-    tags:
-      - "BeeStock"
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              serialGroups:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - branchCode
-                    - code
-                    - productCode
-                    - productionOrder
-                    - serialLabels
-                  branchCode:
-                    type: string
-                    example: 99999
-                    description: Código da Filial
-                  code:
-                    type: string
-                    example: 12345
-                    description: Código da Etiqueta Agrupadora
-                  productionOrder:
-                    type: string
-                    example: 987654321
-                    description: Código da Ordem de Produção
-                  productCode:
-                    type: string
-                    example: 987654321
-                    description: Código do Produto
-                  invoiceSerie:
-                    type: string
-                    example: NMR123
-                    description: Série da Nota Fiscal
-                  waybillId:
-                    type: string
-                    example: NMR123
-                    description: Româneio
-                  serialLabels:
-                    type: array
-                    items:
-                      type: string
-    responses:
-      "200":
-        $ref: "#/components/responses/response200"
-      "401":
-        $ref: "#/components/responses/response401"
+  /api/import/serialGroups:
+    post:
+      summary: Etiquetas Agrupadoras
+      description: Esta rota é utilizada para criação de Etiquetas Agrupadoras.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serialGroups:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - code
+                      - productCode
+                      - productionOrder
+                      - serialLabels
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      code:
+                        type: string
+                        example: 12345
+                        description: Código da Etiqueta Agrupadora
+                      productionOrder:
+                        type: string
+                        example: 987654321
+                        description: Código da Ordem de Produção
+                      productCode:
+                        type: string
+                        example: 987654321
+                        description: Código do Produto
+                      invoiceSerie:
+                        type: string
+                        example: NMR123
+                        description: Série da Nota Fiscal
+                      waybillId:
+                        type: string
+                        example: NMR123
+                        description: Româneio
+                      serialLabels:
+                        type: array
+                        items:
+                          type: string
+      responses:
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
 
-/api/import/serialGroupsApprove:
-  post:
-    summary: Aprovação CQ
-    description: Esta rota é utilizada para aprovação de Etiquetas Agrupadoras.
-    tags:
-      - "BeeStock"
-    requestBody:
-      required: true
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              serialGroups:
-                type: array
-                items:
-                  type: object
-                  required:
-                    - branchCode
-                    - code
-                  branchCode:
-                    type: string
-                    example: 99999
-                    description: Código da Filial
-                  code:
-                    type: string
-                    example: 12345
-                    description: Código da Etiqueta Agrupadora
-    responses:
-      "200":
-        $ref: "#/components/responses/response200"
-      "401":
-        $ref: "#/components/responses/response401"
+  /api/import/serialGroupsApprove:
+    post:
+      summary: Aprovação CQ
+      description: Esta rota é utilizada para aprovação de Etiquetas Agrupadoras.
+      tags:
+        - "BeeStock"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                serialGroups:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - branchCode
+                      - code
+                    properties:
+                      branchCode:
+                        type: string
+                        example: 99999
+                        description: Código da Filial
+                      code:
+                        type: string
+                        example: 12345
+                        description: Código da Etiqueta Agrupadora
+      responses:
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
