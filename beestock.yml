@@ -46,19 +46,20 @@ components:
       content:
         application/json:
           examples:
-            'Success':
+            "Success":
               value:
                 success: true
-            'Error':
+            "Error":
               value:
                 success: false
-                data: [
-                  {
-                    code: "99999",
-                    error: 9000,
-                    messsage: "Descrição da validação que gerou o erro na importação"
-                  }
-                ]
+                data:
+                  [
+                    {
+                      code: "99999",
+                      error: 9000,
+                      messsage: "Descrição da validação que gerou o erro na importação",
+                    },
+                  ]
 paths:
   /api/login:
     post:
@@ -86,18 +87,18 @@ paths:
                 - username
                 - password
       responses:
-        '200':
+        "200":
           description: Retorno do resultado do login
           content:
             application/json:
               examples:
-                'Success':
+                "Success":
                   value:
                     access_token: "9e83a0bdf14a097f92522a4754667969765dddcb"
                     token_type: "Bearer"
                     expires_in: 7199
                     refresh_token: "f6a5ceed677a45f3deabf388589bcd21c76c93c8"
-                'Error':
+                "Error":
                   value:
                     success: false
                     message: "Usuário ou senha incorretos"
@@ -194,10 +195,10 @@ paths:
                         example: Filial teste integração
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/users:
     post:
       summary: Inclusão de Usuários
@@ -356,10 +357,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/customers:
     post:
       summary: Inclusão e Alteração de Clientes
@@ -452,10 +453,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/suppliers:
     post:
       summary: Inclusão e Alteração de Fornecedores
@@ -548,10 +549,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/carriers:
     post:
       summary: Inclusão e Alteração de Transportadoras
@@ -655,10 +656,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/ranges:
     post:
       summary: Inclusão de Ranges
@@ -715,10 +716,10 @@ paths:
                               example: S01R01N01C01R01
                               description: Código do Range
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/storageAddress:
     post:
       summary: Inclusão de Endereços de Armazenamento
@@ -748,7 +749,7 @@ paths:
                       - rangeCode
                       - curve
                     properties:
-                      code: 
+                      code:
                         type: string
                         example: S99R99N99C99G99
                         description: Código do Endereço
@@ -760,7 +761,7 @@ paths:
                         type: string
                         example: 99999
                         description: Código da Filial
-                      type: 
+                      type:
                         type: integer
                         example: 1
                         description: Tipo
@@ -829,10 +830,10 @@ paths:
                         example: S01-99999
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/packages:
     post:
       summary: Inclusão de Embalagens
@@ -887,10 +888,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/unitMeasures:
     post:
       summary: Inclusão de Unidades de Medida
@@ -929,10 +930,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/families:
     post:
       summary: Inclusão de Famílias de Produtos
@@ -966,7 +967,7 @@ paths:
                         type: string
                         example: Material Eletrico
                         description: Descrição
-                      unitMeasure: 
+                      unitMeasure:
                         type: string
                         example: UN
                         description: Código da Unidade de Medida
@@ -979,10 +980,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/products:
     post:
       summary: Inclusão e Alteração de Produtos
@@ -1136,10 +1137,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/productBranches:
     post:
       summary: Inclusão e Alteração de Produtos x Filial
@@ -1214,10 +1215,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/customerProducts:
     post:
       summary: Inclusão e Alteração de Produtos x Cliente
@@ -1271,10 +1272,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/productEans:
     post:
       summary: Inclusão EANs do Produto
@@ -1298,20 +1299,28 @@ paths:
                     type: object
                     required:
                       - productCode
-                      - ean
+                      - barCode
                     properties:
                       productCode:
                         type: string
                         example: 100
                         description: Código do Produto
-                      ean:
+                      barCode:
                         type: string
                         example: 1234567890123
                         description: EAN
-                      type:
+                      barCodeType:
                         type: string
                         example: EAN13
                         description: Tipo EAN
+                      factor:
+                        type: string
+                        example: Schulze
+                        description: Fábrica
+                      packageCode:
+                        type: string
+                        example: SA001
+                        description: Código da Embalagem
                       main:
                         type: boolean
                         example: true
@@ -1321,10 +1330,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/averageCosts:
     post:
       summary: Inclusão e Alteração de Custos Médio
@@ -1376,10 +1385,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/inboundDocuments:
     post:
       summary: Inclusão de Documentos de Entrada Portaria
@@ -1444,10 +1453,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/inboundOrders:
     post:
       summary: Inclusão e Alteração de Documentos de Entrada Recebimento
@@ -1510,10 +1519,6 @@ paths:
                         type: string
                         example: 9123456789012345678901234567890123456789
                         description: Chave de Acesso
-                      canceled:
-                        type: boolean
-                        example: false
-                        description: Nota Cancelada
                       carrierCode:
                         type: string
                         example: 555
@@ -1633,10 +1638,10 @@ paths:
                               example: ""
                               description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/outboundOrders:
     post:
       summary: Inclusão e Alteração de Documentos de Saída
@@ -1810,7 +1815,7 @@ paths:
                               type: number
                               example: 99
                               description: Quantidade Mínima
-                            mandatoryQuantity: 
+                            mandatoryQuantity:
                               type: number
                               example: 99
                               description: Lance Obrigatório
@@ -1823,10 +1828,10 @@ paths:
                               example: ""
                               description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/billingReturn:
     post:
       summary: Retornos Faturamento ERP
@@ -1904,11 +1909,15 @@ paths:
                         type: string
                         example: 1234567890123456789012345678901234567890
                         description: Chave de Acesso
+                      note:
+                        type: string
+                        example: ""
+                        description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/balances:
     post:
       summary: Carga de Saldos de Estoque
@@ -1940,6 +1949,10 @@ paths:
                         type: string
                         example: 99999
                         description: Código da Filial
+                      warehouseCode:
+                        type: string
+                        example: 999
+                        description: Código do Armazem
                       depositCode:
                         type: string
                         example: REV
@@ -1973,10 +1986,10 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
   /api/import/inventoriesErp:
     post:
       summary: Espelho Saldo Estoque ERP
@@ -2051,7 +2064,281 @@ paths:
                         example: ""
                         description: Observação
       responses:
-        '200':
-          $ref: '#/components/responses/response200'
-        '401':
-          $ref: '#/components/responses/response401'
+        "200":
+          $ref: "#/components/responses/response200"
+        "401":
+          $ref: "#/components/responses/response401"
+/api/import/finishOutboundOrders:
+  post:
+    summary: Finalização de Documento de Saída
+    description: Esta rota é utilizada para finalizar um Documento de Saída que ainda está pendente no BeeStock.
+    tags:
+      - "BeeStock"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              token:
+                type: string
+                example: "9e83a0bdf14a097f92522a4754667969765dddcb"
+                description: Token de acesso
+              outboundOrders:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - branchCode
+                    - customerCode
+                    - orderNumber
+                    - orderType
+                  branchCode:
+                    type: string
+                    example: 99999
+                    description: Código da Filial
+                  customerCode:
+                    type: string
+                    example: 12345
+                    description: Código do Cliente
+                  orderNumber:
+                    type: string
+                    example: 987654321
+                    description: Número da Ordem de Saída
+                  orderType:
+                    type: string
+                    example: PD
+                    description: Tipo da Ordem
+    responses:
+      "200":
+        $ref: "#/components/responses/response200"
+      "401":
+        $ref: "#/components/responses/response401"
+
+/api/import/productionOrders:
+  post:
+    summary: Criação de Ordem de Produção
+    description: Esta rota é utilizada para criação da Ordem de Produção.
+    tags:
+      - "BeeStock"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              productionOrders:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - branchCode
+                    - code
+                    - productCode
+                    - quantity
+                  branchCode:
+                    type: string
+                    example: 99999
+                    description: Código da Filial
+                  code:
+                    type: string
+                    example: 12345
+                    description: Código da Orderm de Produção
+                  productCode:
+                    type: string
+                    example: 987654321
+                    description: Código do Produto
+                  quantity:
+                    type: number
+                    example: 5
+                    description: Quantidade
+                  lotNumber:
+                    type: string
+                    example: LOTE001
+                    description: Número do Lote
+                  situation:
+                    type: number
+                    example: 1
+                    description: Situação
+                  reference:
+                    type: string
+                    example: ref
+                    description: Referência
+                  expectedDate:
+                    type: string
+                    example: 25/11/2023
+                    description: Data Esperada
+                  expirationDate:
+                    type: string
+                    example: 25/11/2025
+                    description: Data Expirada
+                  reserveProducts:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - productCode
+                        - quantity
+                      productCode:
+                        type: string
+                        example: 987654321
+                        description: Código do Produto
+                      quantity:
+                        type: number
+                        example: 5
+                        description: Quantidade
+                      lineNumber:
+                        type: string
+                        example: 10
+                        description: Linha Produto
+                      lotNumber:
+                        type: string
+                        example: LOTE001
+                        description: Número do Lote
+    responses:
+      "200":
+        $ref: "#/components/responses/response200"
+      "401":
+        $ref: "#/components/responses/response401"
+
+/api/import/movementStockKanban:
+  post:
+    summary: Movimento de Estoque Kanban
+    description: Esta rota é utilizada para consumir o saldo do Endereço Kanban.
+    tags:
+      - "BeeStock"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              productionOrders:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - branchCode
+                    - depositCode
+                    - orderCode
+                    - productCode
+                    - quantity
+                  branchCode:
+                    type: string
+                    example: 99999
+                    description: Código da Filial
+                  depositCode:
+                    type: string
+                    example: 12345
+                    description: Código do Depósito
+                  orderCode:
+                    type: string
+                    example: 987654321
+                    description: Código do Ordem de Produto
+                  productCode:
+                    type: string
+                    example: 987654321
+                    description: Código do Produto
+                  quantity:
+                    type: number
+                    example: 5
+                    description: Quantidade
+    responses:
+      "200":
+        $ref: "#/components/responses/response200"
+      "401":
+        $ref: "#/components/responses/response401"
+
+/api/import/serialGroups:
+  post:
+    summary: Etiquetas Agrupadoras
+    description: Esta rota é utilizada para criação de Etiquetas Agrupadoras.
+    tags:
+      - "BeeStock"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              serialGroups:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - branchCode
+                    - code
+                    - productCode
+                    - productionOrder
+                    - serialLabels
+                  branchCode:
+                    type: string
+                    example: 99999
+                    description: Código da Filial
+                  code:
+                    type: string
+                    example: 12345
+                    description: Código da Etiqueta Agrupadora
+                  productionOrder:
+                    type: string
+                    example: 987654321
+                    description: Código da Ordem de Produção
+                  productCode:
+                    type: string
+                    example: 987654321
+                    description: Código do Produto
+                  invoiceSerie:
+                    type: string
+                    example: NMR123
+                    description: Série da Nota Fiscal
+                  waybillId:
+                    type: string
+                    example: NMR123
+                    description: Româneio
+                  serialLabels:
+                    type: array
+                    items:
+                      type: string
+    responses:
+      "200":
+        $ref: "#/components/responses/response200"
+      "401":
+        $ref: "#/components/responses/response401"
+
+/api/import/serialGroupsApprove:
+  post:
+    summary: Aprovação CQ
+    description: Esta rota é utilizada para aprovação de Etiquetas Agrupadoras.
+    tags:
+      - "BeeStock"
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              serialGroups:
+                type: array
+                items:
+                  type: object
+                  required:
+                    - branchCode
+                    - code
+                  branchCode:
+                    type: string
+                    example: 99999
+                    description: Código da Filial
+                  code:
+                    type: string
+                    example: 12345
+                    description: Código da Etiqueta Agrupadora
+    responses:
+      "200":
+        $ref: "#/components/responses/response200"
+      "401":
+        $ref: "#/components/responses/response401"
