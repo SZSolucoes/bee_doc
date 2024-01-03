@@ -892,7 +892,7 @@ paths:
           $ref: "#/components/responses/response200"
         "401":
           $ref: "#/components/responses/response401"
-  /api/import/unitMeasures:
+  /api/import/unitsMeasure:
     post:
       summary: Inclusão de Unidades de Medida
       description: Essa rota é usada para criar Unidades de Medida no BeeStock.
