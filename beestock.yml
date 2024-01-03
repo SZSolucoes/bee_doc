@@ -1299,20 +1299,20 @@ paths:
                     type: object
                     required:
                       - productCode
-                      - barCode
+                      - ean
                     properties:
                       productCode:
                         type: string
                         example: 100
                         description: Código do Produto
-                      barCode:
+                      ean:
                         type: string
                         example: 1234567890123
                         description: EAN
                       barCodeType:
                         type: string
-                        example: EAN13
-                        description: Tipo EAN
+                        example: "1"
+                        description: Tipo EAN 1 = Código de Barras, 2 = DUN14, 3 = DISPLAY e 4 = OUTROS
                       factor:
                         type: string
                         example: Schulze
