@@ -720,7 +720,7 @@ paths:
           $ref: "#/components/responses/response200"
         "401":
           $ref: "#/components/responses/response401"
-  /api/import/storageAddress:
+  /api/import/storageAddresses:
     post:
       summary: Inclusão de Endereços de Armazenamento
       description: Essa rota é usada para criar Endereços no BeeStock.
