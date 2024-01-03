@@ -2351,7 +2351,7 @@ paths:
   /api/import/serialLabelAndGroups:
     post:
       summary: Etiqueta Agrupadora e Seriada
-      description: Esta rota é utilizada para aprovação de Etiquetas Agrupadoras.
+      description: Importador de Etiqueta Seriada e Agrupadora.
       tags:
         - "BeeStock"
       requestBody:
@@ -2391,6 +2391,23 @@ paths:
                         type: string
                         example: 12345
                         description: Código da Ordem de Produção
+                      serialLabels:
+                        type: array
+                        items:
+                          type: object
+                          required:
+                            - code
+                            - quantity
+                          properties:
+                            code:
+                              type: string
+                              example: 12345
+                              description: Código da Etiqueta Agrupadora
+                            quantity:
+                              type: number
+                              example: 5
+                              description: Quantidade
+
       responses:
         "200":
           $ref: "#/components/responses/response200"
