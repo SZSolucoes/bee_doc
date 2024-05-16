@@ -1444,7 +1444,7 @@ paths:
                         description: Data de Emissão
                       accessKey:
                         type: string
-                        example: 9876543210987654321098765432109876543219
+                        example: "9876543210987654321098765432109876543219"
                         description: Chave de Acesso
                       licensePlate:
                         type: string
@@ -1524,7 +1524,7 @@ paths:
                         description: Especie
                       accessKey:
                         type: string
-                        example: 9123456789012345678901234567890123456789
+                        example: "9123456789012345678901234567890123456789"
                         description: Chave de Acesso
                       carrierCode:
                         type: string
@@ -1915,7 +1915,7 @@ paths:
                         description: Série da Nota Fiscal
                       accessKey:
                         type: string
-                        example: 1234567890123456789012345678901234567890
+                        example: "1234567890123456789012345678901234567890"
                         description: Chave de Acesso
                       note:
                         type: string
