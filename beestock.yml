@@ -2476,10 +2476,6 @@ paths:
                         type: string
                         example: 31/12/9999
                         description: Data de Validade
-                      depositCode:
-                        type: string
-                        example: 99999
-                        description: Código do Depósito
                       productionOrder:
                         type: string
                         example: 12345
