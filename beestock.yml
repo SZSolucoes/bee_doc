@@ -10,7 +10,7 @@ info:
 servers:
   - url: http://localhost:3333/beeStock/
     description: LocalHost
-  - url: https://api-beestock-demo.szsolucoes.com.br/beeStock/
+  - url: https://beestock-demo.szsolucoes.com.br/api/beestock/
     description: Demonstração
 tags:
   - name: BeeStock
