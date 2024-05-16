@@ -129,6 +129,9 @@ paths:
                       - companyCode
                       - cnpj
                       - postalCode
+                      - email
+                      - cnpj
+                      - postalCode
                     properties:
                       code:
                         type: string
@@ -226,6 +229,7 @@ paths:
                       - email
                       - type
                       - password
+                      - code
                     properties:
                       login:
                         type: string
@@ -1359,6 +1363,8 @@ paths:
                       - branchCode
                       - productCode
                       - averageCost
+                      - productCode
+                      - warehouseCode
                     properties:
                       branchCode:
                         type: string
@@ -1485,6 +1491,7 @@ paths:
                       - orderType
                       - accessKey
                       - carrierCode
+                      - products
                     properties:
                       branchCode:
                         type: string
@@ -1667,6 +1674,7 @@ paths:
                       - branchCode
                       - customerCode
                       - orderNumber
+                      - priorityCode
                       - orderType
                       - deliveryType
                       - totalValue
@@ -1944,6 +1952,7 @@ paths:
                       - depositCode
                       - productCode
                       - lotNumber
+                      - addressCode
                     properties:
                       branchCode:
                         type: string
@@ -2148,14 +2157,30 @@ paths:
                         type: string
                         example: 12345
                         description: Código da Orderm de Produção
+                      orderType:
+                        type: string
+                        example: 1
+                        description: Tipo da Ordem
                       productCode:
                         type: string
                         example: 987654321
                         description: Código do Produto
+                      orderNumber:
+                        type: string
+                        example: 987654321
+                        description: Número da Ordem de Produção
                       quantity:
                         type: number
                         example: 5
                         description: Quantidade
+                      customerCode:
+                        type: string
+                        example: 12345
+                        description: Código do Cliente
+                      quantityProduction:
+                        type: number
+                        example: 5
+                        description: Quantidade Produzida
                       lotNumber:
                         type: string
                         example: LOTE001
@@ -2234,6 +2259,18 @@ paths:
                         type: string
                         example: 99999
                         description: Código da Filial
+                      orderType:
+                        type: string
+                        example: 1
+                        description: Tipo da Ordem
+                      orderNumber: 
+                        type: string
+                        example: 12345
+                        description: Número da Ordem de Produção
+                      customerCode:
+                        type: string
+                        example: 12345
+                        description: Código do Cliente
                       depositCode:
                         type: string
                         example: 12345
@@ -2300,10 +2337,26 @@ paths:
                         type: string
                         example: NMR123
                         description: Série da Nota Fiscal
+                      invoiceNumber:
+                        type: string
+                        example: 12345
+                        description: Número da Nota Fiscal
                       waybillId:
                         type: string
                         example: NMR123
                         description: Româneio
+                      orderSerie:
+                        type: string
+                        example: NMR123
+                        description: Série da Ordem
+                      orderNumber:
+                        type: string
+                        example: 12345
+                        description: Número da Ordem
+                      supplierCode:
+                        type: string
+                        example: 12345
+                        description: Código do Fornecedor
                       serialLabels:
                         type: array
                         items:
@@ -2375,14 +2428,54 @@ paths:
                       - depositCode
                       - productionOrder
                     properties:
+                      code:
+                        type: string
+                        example: 12345
+                        description: Código da Etiqueta Agrupadora
                       branchCode:
                         type: string
                         example: 99999
                         description: Código da Filial
+                      orderSerie:
+                        type: string
+                        example: NMR123
+                        description: Série da Ordem
+                      waybillId:
+                        type: string
+                        example: NMR123
+                        description: Româneio
+                      orderNumber:
+                        type: string
+                        example: 12345
+                        description: Número da Ordem
+                      lotNumber:
+                        type: string
+                        example: LOTE001
+                        description: Número do Lote
+                      invoiceSerie:
+                        type: string
+                        example: NMR123
+                        description: Série da Nota Fiscal
+                      invoiceNumber:
+                        type: string
+                        example: 12345
+                        description: Número da Nota Fiscal
+                      depositCode:
+                        type: string
+                        example: 99999
+                        description: Código do Depósito
+                      supplierCode:
+                        type: string
+                        example: 12345
+                        description: Código do Fornecedor
                       productCode:
                         type: string
                         example: 12345
                         description: Código do Produto
+                      expirationDate:
+                        type: string
+                        example: 31/12/9999
+                        description: Data de Validade
                       depositCode:
                         type: string
                         example: 99999
