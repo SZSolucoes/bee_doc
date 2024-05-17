@@ -130,7 +130,6 @@ paths:
                       - cnpj
                       - postalCode
                       - email
-                      - cnpj
                       - postalCode
                     properties:
                       code:
