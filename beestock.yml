@@ -1707,7 +1707,7 @@ paths:
                         example: true
                         description: Ordem Parcial
                       carrierCode:
-                        type: boolean
+                        type: string
                         example: 12345
                         description: Código da Transportadora
                       deliveryDate:
