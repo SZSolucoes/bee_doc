@@ -8,7 +8,7 @@ info:
     name: Suporte SZ
     url: https://szsolucoes.com.br/suporte
 servers:
-  - url: http://localhost:3333/api/beeStock/
+  - url: http://localhost:3333/beeStock/
     description: LocalHost
   - url: https://beestock-demo.szsolucoes.com.br/api/beestock/
     description: Demonstração
