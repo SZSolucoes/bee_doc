@@ -1317,9 +1317,9 @@ paths:
                         example: "1"
                         description: Tipo EAN 1 = Código de Barras, 2 = DUN14, 3 = DISPLAY e 4 = OUTROS
                       factor:
-                        type: string
-                        example: Schulze
-                        description: Fábrica
+                        type: number
+                        example: 5
+                        description: Fator de Conversão
                       packageCode:
                         type: string
                         example: SA001
@@ -1332,6 +1332,10 @@ paths:
                         type: string
                         example: ""
                         description: Observação
+                      labelCode:
+                        type: string
+                        example: "011"
+                        description: Código do modelo da etiqueta
       responses:
         "200":
           $ref: "#/components/responses/response200"
@@ -2262,7 +2266,7 @@ paths:
                         type: string
                         example: 1
                         description: Tipo da Ordem
-                      orderNumber: 
+                      orderNumber:
                         type: string
                         example: 12345
                         description: Número da Ordem de Produção
@@ -2500,4 +2504,4 @@ paths:
         "200":
           $ref: "#/components/responses/response200"
         "401":
-          $ref: "#/components/responses/response401"   
+          $ref: "#/components/responses/response401"
